@@ -1,0 +1,23 @@
+.root{
+    -fx-background-image: url('images/space.png');
+}
+
+#startButton{
+    -fx-font-size: 30px;
+    -fx-text-fill: white;
+    -fx-background-color: black;
+    -fx-background-radius: 40px;
+    -fx-border-width: 2px;
+    -fx-border-color: white;
+    -fx-border-radius: 40px;
+}
+#startButton:hover{
+    -fx-font-size: 31px;
+    -fx-background-color: darkred;
+
+}
+
+.button{
+
+
+}
