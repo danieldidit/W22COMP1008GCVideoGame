@@ -1,26 +1,25 @@
-package com.example.w22comp1008gcvideogame;
+package com.example.w22comp1008gcvideogame.sprites;
 
+import com.example.w22comp1008gcvideogame.GameConfig;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 
-public class Sprite {
-    private Image image;
-    private int posX, posY, imageWidth, imageHeight;
-    private double speed;
+public abstract class Sprite {
+    protected Image image;
+    protected int posX, posY, imageWidth, imageHeight;
+    protected double speed;
     private boolean alive;
 
     /**
      * This is the constructor for the Sprite class
-     * @param image - javafx image
      * @param posX - The left most position on the Sprite
      * @param posY - The top most position for the Sprite
      * @param imageWidth - The width of the image when drawn
      * @param imageHeight - The height of the image when drawn
      * @param speed - How many pixels the Sprite can move
      */
-    public Sprite(Image image, int posX, int posY, int imageWidth, int imageHeight, double speed) {
-        setImage(image);
+    public Sprite(int posX, int posY, int imageWidth, int imageHeight, double speed) {
         setPosX(posX);
         setPosY(posY);
         setImageWidth(imageWidth);
@@ -86,18 +85,25 @@ public class Sprite {
         this.speed = speed;
     }
 
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
+
     public void draw(GraphicsContext gc)
     {
-        gc.drawImage(image, posX, posY, imageWidth, imageHeight);
+        if (alive)
+            gc.drawImage(image, posX, posY, imageWidth, imageHeight);
+
     }
 
-    public void moveRight()
+    public boolean collidesWith(Sprite sprite)
     {
-        posX = posX + 5;
-
-        if (posX >= GameConfig.getGame_width()-imageWidth/2)
-            posX = GameConfig.getGame_width()-GameConfig.getGame_width();
+        return ((posX + imageWidth/2 > sprite.posX) && (posX < sprite.posX + sprite.imageWidth/2) &&
+                (posY + imageHeight/2 > sprite.posY) && (posY < sprite.posY + sprite.imageHeight/2));
     }
-
 
 }
