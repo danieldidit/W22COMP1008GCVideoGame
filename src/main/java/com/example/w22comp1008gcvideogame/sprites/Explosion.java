@@ -13,7 +13,6 @@ public class Explosion extends Sprite{
     private int explosionPosition;
     private int[] spriteStartX;
 
-
     /**
      * This is the constructor for the Explosion class
      *

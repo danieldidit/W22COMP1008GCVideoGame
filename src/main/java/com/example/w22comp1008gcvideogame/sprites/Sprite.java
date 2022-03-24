@@ -4,7 +4,6 @@ import com.example.w22comp1008gcvideogame.GameConfig;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-
 public abstract class Sprite {
 
     // Declare variables
@@ -109,7 +108,6 @@ public abstract class Sprite {
     {
         if (alive)
             gc.drawImage(image, posX, posY, imageWidth, imageHeight);
-
     }
 
     /**

@@ -15,7 +15,6 @@ public class Ship extends Sprite {
     private int currentMissilePause;
     private ArrayList<Missile> activeMissiles;
 
-
     /**
      * This is the constructor for the Sprite class
      * @param posX        - The left most position on the Sprite

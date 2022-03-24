@@ -18,11 +18,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 
 public class GameBoardController {
 
@@ -228,7 +226,6 @@ public class GameBoardController {
             ship.moveRight();
         if (activeKeys.contains(KeyCode.LEFT) || activeKeys.contains(KeyCode.A))
             ship.moveLeft();
-
         if (activeKeys.contains(KeyCode.SPACE))
             ship.shootMissile();
     }
