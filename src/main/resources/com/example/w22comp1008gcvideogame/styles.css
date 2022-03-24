@@ -1,7 +1,9 @@
+/*Background image for Start screen*/
 .root{
     -fx-background-image: url('images/space.png');
 }
 
+/*Start button styling*/
 #startButton{
     -fx-font-size: 30px;
     -fx-text-fill: white;
@@ -11,13 +13,10 @@
     -fx-border-color: white;
     -fx-border-radius: 40px;
 }
+
+/*Start button hover styling*/
 #startButton:hover{
     -fx-font-size: 31px;
     -fx-background-color: darkred;
-
-}
-
-.button{
-
 
 }

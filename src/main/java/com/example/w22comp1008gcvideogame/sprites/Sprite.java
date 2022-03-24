@@ -6,6 +6,8 @@ import javafx.scene.image.Image;
 
 
 public abstract class Sprite {
+
+    // Declare variables
     protected Image image;
     protected int posX, posY, imageWidth, imageHeight;
     protected double speed;
@@ -25,40 +27,18 @@ public abstract class Sprite {
         setImageWidth(imageWidth);
         setImageHeight(imageHeight);
         setSpeed(speed);
+
+        // Sprite is alive when created by default
         alive = true;
     }
 
+    // Image getters & setters
     public Image getImage() {
         return image;
     }
 
     public void setImage(Image image) {
         this.image = image;
-    }
-
-    public int getPosX() {
-        return posX;
-    }
-
-    public void setPosX(int posX) {
-        int furthestRight = GameConfig.getGame_width() - imageWidth;
-
-        if (posX >= 0 && posX <= furthestRight)
-            this.posX = posX;
-        else
-            throw new IllegalArgumentException("posX must be in the range of 0-" + furthestRight);
-    }
-
-    public int getPosY() {
-        return posY;
-    }
-
-    public void setPosY(int posY) {
-        int furthestDown = GameConfig.getGame_height()-imageHeight;
-
-        if (posY >= 0 && posY <= furthestDown)
-            this.posY = posY;
-        else throw new IllegalArgumentException("posY must be in the range of 0-" + furthestDown);
     }
 
     public int getImageWidth() {
@@ -77,6 +57,33 @@ public abstract class Sprite {
         this.imageHeight = imageHeight;
     }
 
+    // Position getters & setters
+    public int getPosX() {
+        return posX;
+    }
+
+    public void setPosX(int posX) {
+        int furthestRight = GameConfig.getGame_width() - imageWidth;
+
+        if (posX >= 0 && posX <= furthestRight)
+            this.posX = posX;
+        else
+            throw new IllegalArgumentException("posX must be in the range of 0-" + furthestRight);
+    }
+
+    public int getPosY() {
+        return posY;
+    }
+
+    public void setPosY(int posY) {
+        int furthestDown = GameConfig.getGame_height()-imageHeight-80;
+
+        if (posY >= 0 && posY <= furthestDown)
+            this.posY = posY;
+        else throw new IllegalArgumentException("posY must be in the range of 0-" + furthestDown);
+    }
+
+    // Speed getter & setter
     public double getSpeed() {
         return speed;
     }
@@ -85,6 +92,7 @@ public abstract class Sprite {
         this.speed = speed;
     }
 
+    // isAlive getter & setter
     public boolean isAlive() {
         return alive;
     }
@@ -93,6 +101,10 @@ public abstract class Sprite {
         this.alive = alive;
     }
 
+    /**
+     * This method will draw the image to the canvas if the object is alive
+     * @param gc
+     */
     public void draw(GraphicsContext gc)
     {
         if (alive)
@@ -100,10 +112,14 @@ public abstract class Sprite {
 
     }
 
+    /**
+     * This method detects collisions between different sprite objects
+     * @param sprite
+     * @return
+     */
     public boolean collidesWith(Sprite sprite)
     {
         return ((posX + imageWidth/2 > sprite.posX) && (posX < sprite.posX + sprite.imageWidth/2) &&
                 (posY + imageHeight/2 > sprite.posY) && (posY < sprite.posY + sprite.imageHeight/2));
     }
-
 }

@@ -1,21 +1,26 @@
 package com.example.w22comp1008gcvideogame;
 
 public class GameConfig {
+    // Game variables
     private static int game_width = 1000;
     private static int game_height = 800;
 
+    // Ship variables
     private static int ship_width = 110;
     private static int ship_height = 60;
     private static int ship_speed = 5;
 
+    // Missile variables
     private static int missile_width = 40;
     private static int missile_height = 20;
     private static int missile_speed = 7;
 
+    // Alien variables
     private static int alien_width = 60;
     private static int alien_height = 60;
     private static int alien_speed = 3;
 
+    // Game getters & setters
     public static int getGame_width() {
         return game_width;
     }
@@ -32,6 +37,7 @@ public class GameConfig {
         GameConfig.game_height = game_height;
     }
 
+    // Ship getters & setters
     public static int getShip_width() {
         return ship_width;
     }
@@ -59,6 +65,7 @@ public class GameConfig {
         GameConfig.ship_speed = ship_speed;
     }
 
+    // Missile getters & setters
     public static int getMissile_width() {
         return missile_width;
     }
@@ -83,6 +90,7 @@ public class GameConfig {
         GameConfig.missile_speed = missile_speed;
     }
 
+    // Alien getters & setters
     public static int getAlien_width() {
         return alien_width;
     }
